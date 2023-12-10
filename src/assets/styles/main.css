@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #151515;
+    font-family: 'Onest', sans-serif;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
