@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Landing from '../views/LandingView.vue'
 import SignIn from '../views/Sign.vue'
 import SignUp from '../views/SignUp.vue'
+import Main from '../views/Main.vue'
 
 
 const router = createRouter({
@@ -21,8 +22,13 @@ const router = createRouter({
       path: '/sign-up',
       name: 'SignUpViews',
       component: SignUp
+    },
+    {
+      path: '/main',
+      name: 'Main',
+      component: Main
     }
   ]
-})
+}) 
 
 export default router
