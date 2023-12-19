@@ -1,42 +1,65 @@
 <script>
 import { RouterView } from 'vue-router';
+
+
+
 </script>
 
 <template>
-  <div class="panel">
-    <nav class="nav">
-      <ul class="list-menu">
-        <li class="list-nav">
-          <a href="#"><span>🏠</span>Главная</a>
-        </li>
-        <li class="list-nav">
-          <a href="#"><span>🚀</span>Покупка услуг</a>
-        </li>
-        <li class="list-nav">
-          <a href="#"><span>💬</span>Поддержка</a>
-        </li>
-        <li class="list-nav">
-          <a href="#"><span>📑</span>История покупок</a>
-        </li>
-        <li class="list-nav">
-          <a href="#"><span>💲</span>Реферальная система</a>
-        </li>
-      </ul>
-    </nav>
-    <div class="profile">
-      <ul class="profile-menu">
-        <li>
-          <a href="#"><span>📥</span>Пополнить баланс</a>
-        </li>
-        <li>
-          <a href="#"><span>💸 </span>Ваш баланс: 0₽</a>
-        </li>
-      </ul>
+  <div class="wrapper">
+
+    <div class="panel">
+      <nav class="nav">
+        <ul class="list-menu">
+          <li class="list-nav">
+            <router-link to="/main-panel"><span>🏠</span>Главная</router-link>
+          </li>
+          <li class="list-nav">
+            <a href="#" @click="activePage = 2"><span>🚀</span>Покупка услуг</a>
+          </li>
+          <li class="list-nav">
+            <a href="#"><span>💬</span>Поддержка</a>
+          </li>
+          <li class="list-nav">
+            <a href="#"><span>📑</span>История покупок</a>
+          </li>
+          <li class="list-nav">
+            <a href="#"><span>💲</span>Реферальная система</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="profile">
+        <ul class="profile-menu">
+          <li>
+            <a href="#"><span>📥</span>Пополнить баланс</a>
+          </li>
+          <li>
+            <a href="#"><span>💸 </span>Ваш баланс: 0₽</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  
+  
+  <!-- content -->
+  <div class="main-content">
+    <RouterView />
+  </div>
   </div>
 </template>
 
+
 <style scoped>
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-content {
+  margin-left: 20vw; /* Это должно быть равно ширине вашей панели */
+}
 .panel {
   background-color: rgba(30, 30, 30, 0.6);
   width: 20vw;
@@ -75,6 +98,7 @@ import { RouterView } from 'vue-router';
   width: 100%;
   display: flex;
   padding-left: 10%;
+
 }
 
 .list-nav span {
@@ -105,6 +129,4 @@ import { RouterView } from 'vue-router';
   position: absolute;
   left: 0;
 }
-
-
 </style>
