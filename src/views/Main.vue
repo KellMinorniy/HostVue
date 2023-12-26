@@ -1,5 +1,5 @@
 <script>
-import { RouterView } from 'vue-router';
+import { RouterLink, RouterView } from 'vue-router'
 
 
 
@@ -15,7 +15,7 @@ import { RouterView } from 'vue-router';
             <router-link to="/main-panel"><span>🏠</span>Главная</router-link>
           </li>
           <li class="list-nav">
-            <a href="#" @click="activePage = 2"><span>🚀</span>Покупка услуг</a>
+            <router-link to="/main-servises"><span>🚀</span>Покупка услуг</router-link>
           </li>
           <li class="list-nav">
             <a href="#"><span>💬</span>Поддержка</a>
@@ -46,87 +46,75 @@ import { RouterView } from 'vue-router';
     <RouterView />
   </div>
   </div>
+  
 </template>
 
 
 <style scoped>
-
 .wrapper {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.main-content {
-  margin-left: 20vw; /* Это должно быть равно ширине вашей панели */
 }
 .panel {
-  background-color: rgba(30, 30, 30, 0.6);
-  width: 20vw;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
   display: flex;
   flex-direction: column;
+  margin-left: 0;
+  top: 0;
   justify-content: space-between;
+  height: 100vh;
+  background-color: rgb(8, 8, 8);
+  width: 20%;
 }
 
-
-
-
-.list-menu {
+.list-menu, .profile-menu {
+  list-style-type: none;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  justify-content: space-between;
-  margin-top: 10%;
-  top: 0;
+  justify-content: flex-start;
+  margin-left: 0;
+  text-align: start;
 }
 
 .list-nav {
-  color: white;
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
+  margin-top: 15%;
 }
 
-.list-nav a {
-  color: white;
-  text-decoration: none;
-  position: relative;
+.nav {
   width: 100%;
   display: flex;
-  padding-left: 10%;
+  justify-content: flex-start;
 
 }
 
-.list-nav span {
-  position: absolute;
-  left: 0;
+.list-nav:hover {
+  transform: translateX(3px);
+  transition: 0.3s;
 }
 
-/* Profile Panel */
-
-.profile-menu {
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  gap: 20px;
-  margin-bottom: 30%;
-}
-
-.profile-menu a {
+.list-nav a, .profile-menu a {
   color: white;
   text-decoration: none;
-  position: relative;
-  width: 100%;
-  display: flex;
-  padding-left: 10%;
 }
 
-.profile-menu span {
-  position: absolute;
-  left: 0;
+.profile-menu li {
+  margin-top: 10%;
+}
+
+@media(max-width:500px) {
+  .list-nav, .profile-menu {
+    font-size: 10px;
+  }
+}
+
+@media(max-width:768px) {
+  .panel {
+    width: 30%;
+    height: 100vh;
+  }
+
+  .list-nav, .profile-menu {
+    font-size: 14px;
+  }
 }
 </style>

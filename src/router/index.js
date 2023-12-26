@@ -4,6 +4,7 @@ import SignIn from '../views/Sign.vue'
 import SignUp from '../views/SignUp.vue'
 import Main from '../views/Main.vue'
 import MainPanel from '../views/MainPanel.vue'
+import MainServises from '@/views/MainServises.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,13 +27,21 @@ const router = createRouter({
     {
       path: '/main',
       name: 'Main',
-      component: Main
+      component: Main,
+      children: [
+        {
+          path: '/main-panel',
+          name: 'MainPanel',
+          component: MainPanel
+        },
+        {
+          path: '/main-servises',
+          name: 'MainServises',
+          component: MainServises
+        }
+      ]
     },
-    {
-      path: '/main-panel',
-      name: 'MainPanel',
-      component: MainPanel
-    }
+    
   ]
 }) 
 
